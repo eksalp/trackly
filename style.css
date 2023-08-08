@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
   --bg-color: #f6f8fa;
   --text-color: #1d1f27;
-  --main-color: #3a3dbe;
+  --main-color: darkcyan;
 }
 
 * {
@@ -13,8 +13,8 @@
 }
 
 body {
-  padding: 2rem;
-  font-family: "Poppins", sans-serif;
+  padding: 1.5rem 0.5rem;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -22,6 +22,10 @@ body {
 h1 {
   text-align: center;
   font-size: 1.5rem;
+}
+
+h6 {
+  text-align: center;
 }
 
 h3,
@@ -43,7 +47,7 @@ header {
   color: #fff;
   padding: 1rem;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -54,13 +58,13 @@ header div {
 
 header div:first-child {
   flex-basis: 100%;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 header div:nth-child(n + 2) {
   flex-basis: 50%;
-  font-size: 1.25rem;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
@@ -84,7 +88,7 @@ form button {
   border-radius: 5px;
   margin-bottom: 5px;
   height: 42px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }
 
@@ -121,7 +125,7 @@ input#type {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background: #eee;
+  background: darkcyan;
   border-radius: 5px;
   position: relative;
 }
@@ -134,7 +138,7 @@ input#type {
 }
 
 .option::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 5px;
   left: 0;

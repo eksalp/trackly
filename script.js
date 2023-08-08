@@ -1,28 +1,24 @@
-const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  signDisplay: "always",
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'IDR',
+  signDisplay: 'always',
 });
 
-const list = document.getElementById("transactionList");
-const form = document.getElementById("transactionForm");
-const status = document.getElementById("status");
-const balance = document.getElementById("balance");
-const income = document.getElementById("income");
-const expense = document.getElementById("expense");
+const list = document.getElementById('transactionList');
+const form = document.getElementById('transactionForm');
+const status = document.getElementById('status');
+const balance = document.getElementById('balance');
+const income = document.getElementById('income');
+const expense = document.getElementById('expense');
 
-form.addEventListener("submit", addTransaction);
+form.addEventListener('submit', addTransaction);
 
 function updateTotal() {
-  const incomeTotal = transactions
-    .filter((trx) => trx.type === "income")
-    .reduce((total, trx) => total + trx.amount, 0);
+  const incomeTotal = transactions.filter((trx) => trx.type === 'income').reduce((total, trx) => total + trx.amount, 0);
 
-  const expenseTotal = transactions
-    .filter((trx) => trx.type === "expense")
-    .reduce((total, trx) => total + trx.amount, 0);
+  const expenseTotal = transactions.filter((trx) => trx.type === 'expense').reduce((total, trx) => total + trx.amount, 0);
 
   const balanceTotal = incomeTotal - expenseTotal;
 
@@ -32,18 +28,18 @@ function updateTotal() {
 }
 
 function renderList() {
-  list.innerHTML = "";
+  list.innerHTML = '';
 
-  status.textContent = "";
+  status.textContent = '';
   if (transactions.length === 0) {
-    status.textContent = "No transactions.";
+    status.textContent = 'No transactions.';
     return;
   }
 
   transactions.forEach(({ id, name, amount, date, type }) => {
-    const sign = "income" === type ? 1 : -1;
+    const sign = 'income' === type ? 1 : -1;
 
-    const li = document.createElement("li");
+    const li = document.createElement('li');
 
     li.innerHTML = `
       <div class="name">
@@ -85,10 +81,10 @@ function addTransaction(e) {
 
   transactions.push({
     id: transactions.length + 1,
-    name: formData.get("name"),
-    amount: parseFloat(formData.get("amount")),
-    date: new Date(formData.get("date")),
-    type: "on" === formData.get("type") ? "income" : "expense",
+    name: formData.get('name'),
+    amount: parseFloat(formData.get('amount')),
+    date: new Date(formData.get('date')),
+    type: 'on' === formData.get('type') ? 'income' : 'expense',
   });
 
   this.reset();
@@ -101,5 +97,5 @@ function addTransaction(e) {
 function saveTransactions() {
   transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  localStorage.setItem("transactions", JSON.stringify(transactions));
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 }
