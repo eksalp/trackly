@@ -4,62 +4,175 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Trackly</title>
+    <title>Trackly | Registration</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* CSS untuk form registrasi */
+      .registration-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f0f0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .registration-form h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007BFF;
+      }
+
+      .registration-form label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .registration-form input, .registration-form select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+      }
+
+      .registration-form select {
+        background-color: #f9f9f9;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      /* Untuk tautan "Tekan ini apabila anda sudah mengisi" */
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: #0056b3;
+      }
+    </style>
   </head>
   <body>
     <h1>Trackly</h1>
     <h6>"Track your money"</h6>
 
     <main>
-      <header>
-        <div>
-          <h5>Total Balance</h5>
-          <span id="balance">$0.00</span>
-        </div>
-        <div>
-          <h5>Income</h5>
-          <span id="income">$0.00</span>
-        </div>
-        <div>
-          <h5>Expense</h5>
-          <span id="expense">$0.00</span>
-        </div>
-      </header>
-
       <section>
-        <h3>Transactions</h3>
-        <ul id="transactionList"></ul>
-        <div id="status"></div>
-      </section>
+        <h3>Data Pengguna</h3>
+        <form class="registration-form">
+          <label for="name">Nama</label>
+          <input type="text" name="name" placeholder="Nama Lengkap" required />
 
-      <section>
-        <h3>Add Transaction</h3>
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="Email aktif" required />
 
-        <form id="transactionForm">
-          <div>
-            <label for="type">
-              <input type="checkbox" name="type" id="type" />
-              <div class="option">
-                <span>Expense</span>
-                <span>Income</span>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label for="name">Description</label>
-            <input type="text" name="name" required />
-          </div>
-          <div>
-            <label for="amount">Amount</label>
-            <input type="number" name="amount" value="0" min="0.01" step="0.01" required />
-          </div>
-          <div>
-            <label for="date">Date</label>
-            <input type="date" name="date" required />
-          </div>
-          <button type="submit">Submit</button>
+          <label for="phone">No WhatsApp</label>
+          <input type="tel" name="phone" placeholder="Nomor WhatsApp aktif" required />
+
+          <label for="address">Alamat</label>
+          <input type="text" name="address" required />
+
+          <label for="jurusan">Jurusan</label>
+          <input type="text" name="jurusan" placeholder="Contoh: Manajemen" required />
+
+          <label for="angkatan">Angkatan</label>
+          <input type="text" name="angkatan" placeholder="Contoh: 2022" required />
         </form>
+        <h3>Pertanyaan</h3>
+        <form class="registration-form">
+          <label for="per1">Anda semester berapa?</label>
+          <select name="per1" id="per1">
+            <option value="">Pilih</option>
+            <option value="option1">1-2</option>
+            <option value="option2">3-4</option>
+            <option value="option3">5-6</option>
+            <option value="option3">7-8</option>
+            <option value="option3">9 lebih</option>
+          </select>
+
+          <label for="per2">Berapa usia Anda?</label>
+          <select name="per2" id="per2">
+            <option value="">Pilih</option>
+            <option value="option1">18-22</option>
+            <option value="option2">23-29</option>
+            <option value="option3">30-39</option>
+            <option value="option3">40-59</option>
+            <option value="option3">60 atau lebih</option>
+          </select>
+
+          <label for="per3">Jenis Kelamin Anda</label>
+          <select name="per3" id="per3">
+            <option value="">Pilih</option>
+            <option value="option1">Laki-laki</option>
+            <option value="option2">Perempuan</option>
+          </select>
+
+          <label for="per4">Mana yang paling menggambarkan pendapatan pribadi Anda atau keluarga Anda tahun lalu?</label>
+          <select name="per4" id="per4">
+            <option value="">Pilih</option>
+            <option value="option1">Tidak ada pendapatan</option>
+            <option value="option2">Dibawah 159 Juta</option>
+            <option value="option3">160-459 Juta</option>
+            <option value="option3">460-789 Juta</option>
+            <option value="option3">790 Juta lebih</option>
+          </select>
+
+          <label for="per5">Berapa tahun pengalaman kerja yang Anda miliki? Termasuk pengalaman penuh atau paruh waktu, magang, kerja sama, pekerjaan musim panas, dll.</label>
+          <select name="per5" id="per5">
+            <option value="">Pilih</option>
+            <option value="option1">Tidak ada</option>
+            <option value="option2">Kurang dari 2 tahun</option>
+            <option value="option3">2 sampai kurang dari 4 tahun</option>
+            <option value="option3">4 sampai kurang dari 6 tahun</option>
+            <option value="option3">6 tahun atau lebih</option>
+          </select>
+
+          <label for="per6">Apa bidang utama studi Anda?</label>
+          <select name="per6" id="per6">
+            <option value="">Pilih</option>
+            <option value="option1">Bisnis</option>
+            <option value="option2">Pendidikan</option>
+            <option value="option3">Seni Liberal</option>
+            <option value="option3">Sains atau Teknik</option>
+            <option value="option3">Lainnya</option>
+          </select>
+
+          <label for="per7">Apakah kamu mahasiswa asing?</label>
+          <select name="per7" id="per7">
+            <option value="">Pilih</option>
+            <option value="option1">Ya</option>
+            <option value="option2">Tidak</option>
+            <option value="option3">2 sampai kurang dari 4 tahun</option>
+            <option value="option3">4 sampai kurang dari 6 tahun</option>
+            <option value="option3">6 tahun atau lebih</option>
+          </select>
+          
+        </form>
+        <button type="submit">Submit</button>
+        <br>
+          <h6>*Hanya Diisi 1 kali saja, tidak perlu mengisi ulang</h6>
+          
+          <a href="trackly.html"><h6>Tekan ini apabila anda sudah mengisi</h6></a>
       </section>
     </main>
 
