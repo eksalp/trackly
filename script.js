@@ -22,9 +22,26 @@ function updateTotal() {
 
   const balanceTotal = incomeTotal - expenseTotal;
 
+  if (balanceTotal < 0) {
+    balance.style.color = 'red';
+  } else {
+    balance.style.color = 'white';
+  }
+
+  const expensePercentage = (expenseTotal / incomeTotal) * 100;
+
+
   balance.textContent = formatter.format(balanceTotal).substring(1);
   income.textContent = formatter.format(incomeTotal);
   expense.textContent = formatter.format(expenseTotal * -1);
+  const incomePercentageElement = document.getElementById('incomePercentage');
+  incomePercentageElement.textContent = `${expensePercentage.toFixed(2)}%`;
+
+  if (expensePercentage > 50) {
+    incomePercentageElement.style.color = 'red';
+  } else {
+    incomePercentageElement.style.color = 'white';
+  }
 }
 
 function renderList() {

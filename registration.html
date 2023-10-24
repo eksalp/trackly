@@ -79,7 +79,7 @@
     <main>
       <section>
         <h3>Data Pengguna</h3>
-        <form class="registration-form">
+        <form name="submit-to-google-sheet" class="registration-form">
           <label for="name">Nama</label>
           <input type="text" name="name" placeholder="Nama Lengkap" required />
 
@@ -101,68 +101,68 @@
           <label for="per1">Anda semester berapa?</label>
           <select name="per1" id="per1">
             <option value="">Pilih</option>
-            <option value="option1">1-2</option>
-            <option value="option2">3-4</option>
-            <option value="option3">5-6</option>
-            <option value="option3">7-8</option>
-            <option value="option3">9 lebih</option>
+            <option value="1-2">1-2</option>
+            <option value="3-4">3-4</option>
+            <option value="5-6">5-6</option>
+            <option value="7-8">7-8</option>
+            <option value="9 lebih">9 lebih</option>
           </select>
 
           <label for="per2">Berapa usia Anda?</label>
           <select name="per2" id="per2">
             <option value="">Pilih</option>
-            <option value="option1">18-22</option>
-            <option value="option2">23-29</option>
-            <option value="option3">30-39</option>
-            <option value="option3">40-59</option>
-            <option value="option3">60 atau lebih</option>
+            <option value="18-22">18-22</option>
+            <option value="23-29">23-29</option>
+            <option value="30-39">30-39</option>
+            <option value="40-49">40-59</option>
+            <option value="60 atau lebih">60 atau lebih</option>
           </select>
 
           <label for="per3">Jenis Kelamin Anda</label>
           <select name="per3" id="per3">
             <option value="">Pilih</option>
-            <option value="option1">Laki-laki</option>
-            <option value="option2">Perempuan</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
           </select>
 
           <label for="per4">Mana yang paling menggambarkan pendapatan pribadi Anda atau keluarga Anda tahun lalu?</label>
           <select name="per4" id="per4">
             <option value="">Pilih</option>
-            <option value="option1">Tidak ada pendapatan</option>
-            <option value="option2">Dibawah 159 Juta</option>
-            <option value="option3">160-459 Juta</option>
-            <option value="option3">460-789 Juta</option>
-            <option value="option3">790 Juta lebih</option>
+            <option value="Tidak ada pendapatan">Tidak ada pendapatan</option>
+            <option value="Dibawah 159 Juta">Dibawah 159 Juta</option>
+            <option value="160-459 Juta">160-459 Juta</option>
+            <option value="460-789 Juta">460-789 Juta</option>
+            <option value="790 Juta lebih">790 Juta lebih</option>
           </select>
 
           <label for="per5">Berapa tahun pengalaman kerja yang Anda miliki? Termasuk pengalaman penuh atau paruh waktu, magang, kerja sama, pekerjaan musim panas, dll.</label>
           <select name="per5" id="per5">
             <option value="">Pilih</option>
-            <option value="option1">Tidak ada</option>
-            <option value="option2">Kurang dari 2 tahun</option>
-            <option value="option3">2 sampai kurang dari 4 tahun</option>
-            <option value="option3">4 sampai kurang dari 6 tahun</option>
-            <option value="option3">6 tahun atau lebih</option>
+            <option value="Tidak ada">Tidak ada</option>
+            <option value="Kurang dari 2 tahun">Kurang dari 2 tahun</option>
+            <option value="2 sampai kurang dari 4 tahun">2 sampai kurang dari 4 tahun</option>
+            <option value="4 sampai kurang dari 6 tahun">4 sampai kurang dari 6 tahun</option>
+            <option value="6 tahun atau lebih">6 tahun atau lebih</option>
           </select>
 
           <label for="per6">Apa bidang utama studi Anda?</label>
           <select name="per6" id="per6">
             <option value="">Pilih</option>
-            <option value="option1">Bisnis</option>
-            <option value="option2">Pendidikan</option>
-            <option value="option3">Seni Liberal</option>
-            <option value="option3">Sains atau Teknik</option>
-            <option value="option3">Lainnya</option>
+            <option value="Bisnis">Bisnis</option>
+            <option value="Pendidikan">Pendidikan</option>
+            <option value="Seni Liberal">Seni Liberal</option>
+            <option value="Sains atau Teknik">Sains atau Teknik</option>
+            <option value="Lainnya">Lainnya</option>
           </select>
 
           <label for="per7">Apakah kamu mahasiswa asing?</label>
           <select name="per7" id="per7">
             <option value="">Pilih</option>
-            <option value="option1">Ya</option>
-            <option value="option2">Tidak</option>
-            <option value="option3">2 sampai kurang dari 4 tahun</option>
-            <option value="option3">4 sampai kurang dari 6 tahun</option>
-            <option value="option3">6 tahun atau lebih</option>
+            <option value="Ya">Ya</option>
+            <option value="Tidak">Tidak</option>
+            <option value="2 sampai kurang dari 4 tahun">2 sampai kurang dari 4 tahun</option>
+            <option value="4 sampai kurang dari 6 tahun">4 sampai kurang dari 6 tahun</option>
+            <option value="6 tahun atau lebih">6 tahun atau lebih</option>
           </select>
           
         
@@ -171,9 +171,29 @@
           <h6>*Hanya Diisi 1 kali saja, tidak perlu mengisi ulang</h6>
           
           <a href="index.html"><h6>Tekan ini apabila anda sudah mengisi</h6></a>
-      </form></section>
+      </form>
+    </section>
     </main>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzx1w9lY3W3VpCnRm0kDIDFwSoEFxwOYciKKQv7WQlOonBY0s5HdkUe-hTIMOe6fgo7/exec';
+const form = document.forms['submit-to-google-sheet'];
 
-    <script src="script.js"></script>
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then(response => {
+      console.log('Success!', response);
+      // Clear the form
+      form.reset();
+      // Show an alert
+      alert('Data berhasil dikirim!');
+      // Redirect to index.html
+      window.location.href = 'index.html';
+    })
+    .catch(error => console.error('Error!', error.message));
+});
+
+      
+    </script>
   </body>
 </html>
