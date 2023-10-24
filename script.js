@@ -116,3 +116,64 @@ function saveTransactions() {
 
   localStorage.setItem('transactions', JSON.stringify(transactions));
 }
+// Fungsi untuk menghasilkan laporan dalam format CSV
+function generateCSVReport() {
+  // Membuat header kolom
+  const csvHeader = ['Date', 'Description', 'Amount', 'Type'];
+
+  // Membuat data transaksi
+  const csvData = transactions.map((trx) => [
+    new Date(trx.date).toLocaleDateString(), // Tanggal (A2)
+    trx.name, // Deskripsi (B2)
+    trx.amount, // Jumlah (C2)
+    trx.type === 'income' ? 'Income' : 'Expense', // Tipe (D2)
+  ]);
+
+  // Menghitung total income
+  const incomeTotal = transactions
+    .filter((trx) => trx.type === 'income')
+    .reduce((total, trx) => total + trx.amount, 0);
+
+  // Menghitung total expense
+  const expenseTotal = transactions
+    .filter((trx) => trx.type === 'expense')
+    .reduce((total, trx) => total + trx.amount, 0);
+
+  // Menghitung money used (total expense - total income)
+  const moneyUsed = expenseTotal - incomeTotal;
+
+  // Tambahkan total income, total expense, dan money used sebagai baris tambahan dalam laporan
+  csvData.push(['', 'Total Income', incomeTotal, 'Income']);
+  csvData.push(['', 'Total Expense', expenseTotal, 'Expense']);
+  
+
+  // Menggabungkan header dan data menjadi satu array
+  const csvContent = [csvHeader, ...csvData];
+
+// Menggabungkan header dan data menjadi satu array dengan titik koma sebagai pemisah
+const csvString = csvContent.map((row) => row.join(';')).join('\n');
+
+  // Buat objek Blob untuk laporan CSV
+  const blob = new Blob([csvString], { type: 'text/csv' });
+
+  // Buat tautan untuk mengunduh laporan
+  const url = window.URL.createObjectURL(blob);
+
+  // Buat elemen tautan untuk pengunduhan
+  const downloadLink = document.createElement('a');
+  downloadLink.href = url;
+  downloadLink.download = 'balance_report.csv'; // Nama file saat diunduh
+
+  // Klik tautan untuk memulai pengunduhan
+  downloadLink.click();
+
+  // Bebaskan sumber daya
+  window.URL.revokeObjectURL(url);
+}
+
+// Menambahkan event listener untuk tombol "Unduh Laporan"
+const downloadReportButton = document.getElementById('downloadReport');
+downloadReportButton.addEventListener('click', generateCSVReport);
+
+
+
